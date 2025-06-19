@@ -75,7 +75,7 @@ smart-sorting/
 
 
 ## 📦 How to Run Locally
-
+```
 # Clone the repository
 git clone https://github.com/vamsi746/smartsort.git
 cd smartsort
@@ -94,6 +94,8 @@ python app.py
 
 Then open http://127.0.0.1:5000 in your browser.
 
+
+```
 🎯 Use Cases
 🏭 Factories: Automated sorting of fresh vs rotten produce
 
