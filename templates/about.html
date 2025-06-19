@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | SmartSort</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="logo">SMARTSORT</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about" class="active">About</a></li>
+            <li><a href="/predict">Predict</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="about-hero">
+        <div class="overlay"></div>
+        <div class="about-card">
+            <h1>About SmartSort</h1>
+            <p><strong>SmartSort</strong> is an AI-powered web application that helps identify the freshness of fruits and vegetables using deep learning and transfer learning (VGG16).</p>
+            <p>It assists farmers, vendors, and households in reducing food waste and improving quality control.</p>
+            <p>This project uses a custom-trained model to classify over <strong>28 fruit and vegetable classes</strong> as either fresh or rotten. Users simply upload an image, and SmartSort instantly analyzes and displays the prediction.</p>
+            <p>Whether you're working in agriculture, managing a supermarket, or just checking what’s in your fridge — SmartSort brings AI to your fingertips.</p>
+            <p class="highlight">💡 Built with ❤️ by <strong>VAMSI</strong></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>✨ Built with ❤️ by <strong>VAMSI</strong> | © 2025 SmartSort</p>
+    </footer>
+</body>
+</html>
