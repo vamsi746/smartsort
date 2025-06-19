@@ -44,7 +44,6 @@
 
 ## 📦 How to Run Locally
 
-```bash
 # Clone the repository
 git clone https://github.com/vamsi746/smartsort.git
 cd smartsort
@@ -59,38 +58,30 @@ pip install -r requirements.txt
 
 # Run the Flask application
 python app.py
---------
-📁 Project Structure
-app.py — Flask backend
 
-healthy_vs_rotten.h5 — Trained model
 
-templates/ — HTML pages (index.html, predict.html, output.html, etc.)
+Then open http://127.0.0.1:5000 in your browser.
 
-static/css/style.css — Styling
+🎯 Use Cases
+🏭 Factories: Automated sorting of fresh vs rotten produce
 
-static/img/ — Icons, banners, and background images
+🛒 Supermarkets: Quality check at delivery docks
 
-requirements.txt — Python packages
-
-render.yaml, Dockerfile, runtime.txt — Deployment configs
+🏠 Smart Homes: Alert users to use produce before it spoils
 
 🙌 Acknowledgements
-🍏 Dataset: Fruit and Vegetable Diseases Dataset (Kaggle)
+Kaggle Dataset – for the fruit and vegetable dataset
 
-🧠 Transfer Learning: VGG16 model
+TensorFlow – deep learning framework
 
-🌐 UI Inspired by NutriGaze
+VGG16 – pre-trained model for transfer learning
 
-🚀 Hosted using Render
+Flask – lightweight Python web framework
 
-✍️ Author
-🔥 VAMSI 🔥
-💼 LinkedIn: https://www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6/
-🐙 GitHub: https://github.com/vamsi746
+# ✍️ Author
+## 🔥 VAMSI(Lakshmi Narayana) 🔥
+## 🔗 GitHub: vamsi746
+## 🔗 LinkedIn: lakshmi-narayana-sangaraju
 
-💡 Passionate Web Developer | AI Enthusiast | Builder of Cool Projects
-
-📄 License
-This project is licensed under the MIT License - feel free to use and modify!
-
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
