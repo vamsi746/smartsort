@@ -42,7 +42,7 @@
 
 ---
 ## 🗂️ Project Structure
-'''
+```
 smart-sorting/
 │
 ├── app.py # Flask backend
@@ -69,7 +69,9 @@ smart-sorting/
 ├── home.png
 ├── predict.png
 └── contact.png
-'''
+
+
+```
 
 
 ## 📦 How to Run Locally
