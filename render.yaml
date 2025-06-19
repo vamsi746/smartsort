@@ -1,11 +1,6 @@
 services:
   - type: web
     name: smartsort-backend
-    env: python
-    pythonVersion: 3.10.13   # ✅ FORCE this version!
+    env: docker
     region: oregon
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    envVars:
-      - key: FLASK_ENV
-        value: production
+    plan: free
