@@ -10,7 +10,7 @@
 
 ---
 
-## 📸 Screenshots
+## 📸 Demo Visuals
 
 ### 🏠 Home Page  
 ![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home.png.PNG)
