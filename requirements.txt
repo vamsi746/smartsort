@@ -106,6 +106,7 @@ gensim @ file:///C:/b/abs_efsh9stgvi/croot/gensim_1725376635600/work
 gitdb @ file:///tmp/build/80754af9/gitdb_1617117951232/work
 GitPython @ file:///C:/b/abs_2bkslnqz4i/croot/gitpython_1720455044865/work
 greenlet @ file:///C:/b/abs_a6c75ie0bc/croot/greenlet_1702060012174/work
+gunicorn==23.0.0
 h11 @ file:///C:/b/abs_1czwoyexjf/croot/h11_1706652332846/work
 h5py @ file:///C:/b/abs_c4ha_1xv14/croot/h5py_1715094776210/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
