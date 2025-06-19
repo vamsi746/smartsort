@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.h5
+*.db
+*.sqlite3
+.ipynb_checkpoints/
+Fruit And Vegetable Diseases Dataset/
+.DS_Store
+.env
+.vscode/
+*.log
