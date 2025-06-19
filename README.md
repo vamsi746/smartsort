@@ -12,16 +12,15 @@
 
 ## 📸 Screenshots
 
-### 🔹 Home Page  
-![Home Page](https://github.com/vamsi746/smartsort/assets/136192246/42d74990-9c0a-4c3d-bfef-f071bbd6b03f)
+### 🏠 Home Page  
+![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home.png)
 
-### 🔹 Prediction Upload  
-![Prediction Page](https://github.com/vamsi746/smartsort/assets/136192246/65b51c80-2d45-4c3b-a8b1-f407961e6208)
+### 🔍 Predict Page  
+![Predict](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/predict.png)
 
-### 🔹 Result Output  
-![Result Page](https://github.com/vamsi746/smartsort/assets/136192246/af93c37e-ffb2-49b9-9e71-178f4807b983)
+### 📈 Result Output  
+![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/result.png)
 
----
 
 ## 💡 Features
 
