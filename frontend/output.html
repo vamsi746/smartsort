@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result | SmartSort</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">SMARTSORT</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/predict">Predict</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="output-hero">
+    <div class="overlay"></div>
+    <div class="output-card">
+        <h2><i class="fas fa-check-circle"></i> Prediction Result</h2>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        <p class="prediction-text">{{ prediction }}</p>
+        <a href="/predict" class="cta-btn"><i class="fas fa-redo"></i> Try Another</a>
+    </div>
+</section>
+
+
+  <footer>
+    <p>✨ Built with ❤️ by <strong>VAMSI</strong> | © 2025 SmartSort</p>
+  </footer>
+
+</body>
+</html>
