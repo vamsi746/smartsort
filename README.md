@@ -10,18 +10,17 @@
 
 ---
 
-## 📸 Screenshots
+## 📸 Demo Visuals
 
-### 🔹 Home Page  
-![Home Page](https://github.com/vamsi746/smartsort/assets/136192246/42d74990-9c0a-4c3d-bfef-f071bbd6b03f)
+### 🏠 Home Page  
+![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home.png.PNG)
 
-### 🔹 Prediction Upload  
-![Prediction Page](https://github.com/vamsi746/smartsort/assets/136192246/65b51c80-2d45-4c3b-a8b1-f407961e6208)
+### 🔍 Predict Page  
+![Predict](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/predict.png.PNG)
 
-### 🔹 Result Output  
-![Result Page](https://github.com/vamsi746/smartsort/assets/136192246/af93c37e-ffb2-49b9-9e71-178f4807b983)
+### 📈 Result Output  
+![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/result.png.PNG)
 
----
 
 ## 💡 Features
 
@@ -42,10 +41,41 @@
 - **Deployment:** Render (Backend), GitHub Hosting  
 
 ---
+## 🗂️ Project Structure
+```
+smart-sorting/
+│
+├── app.py # Flask backend
+├── healthy_vs_rotten.h5 # Trained model
+├── requirements.txt
+│
+├── templates/ # HTML files
+│ ├── index.html
+│ ├── about.html
+│ ├── contact.html
+│ ├── predict.html
+│ └── output.html
+│
+├── static/
+│ ├── css/
+│ │ └── style.css
+│ └── img/
+│ ├── banner.jpg
+│ ├── email.png
+│ ├── github.png
+│ └── linkedin.png
+│
+└── screenshots/
+├── home.png
+├── predict.png
+└── contact.png
+
+
+```
+
 
 ## 📦 How to Run Locally
-
-```bash
+```
 # Clone the repository
 git clone https://github.com/vamsi746/smartsort.git
 cd smartsort
@@ -60,37 +90,32 @@ pip install -r requirements.txt
 
 # Run the Flask application
 python app.py
-📁 Project Structure
-app.py — Flask backend
 
-healthy_vs_rotten.h5 — Trained model
 
-templates/ — HTML pages (index.html, predict.html, output.html, etc.)
+Then open http://127.0.0.1:5000 in your browser.
 
-static/css/style.css — Styling
 
-static/img/ — Icons, banners, and background images
+```
+🎯 Use Cases
+🏭 Factories: Automated sorting of fresh vs rotten produce
 
-requirements.txt — Python packages
+🛒 Supermarkets: Quality check at delivery docks
 
-render.yaml, Dockerfile, runtime.txt — Deployment configs
+🏠 Smart Homes: Alert users to use produce before it spoils
 
 🙌 Acknowledgements
-🍏 Dataset: Fruit and Vegetable Diseases Dataset (Kaggle)
+Kaggle Dataset – for the fruit and vegetable dataset
 
-🧠 Transfer Learning: VGG16 model
+TensorFlow – deep learning framework
 
-🌐 UI Inspired by NutriGaze
+VGG16 – pre-trained model for transfer learning
 
-🚀 Hosted using Render
+Flask – lightweight Python web framework
 
-✍️ Author
-🔥 VAMSI 🔥
-💼 LinkedIn: https://www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6/
-🐙 GitHub: https://github.com/vamsi746
+# ✍️ Author
+## 🔥 VAMSI(Lakshmi Narayana) 🔥
+## 🔗 GitHub: vamsi746
+## 🔗 LinkedIn: lakshmi-narayana-sangaraju
 
-💡 Passionate Web Developer | AI Enthusiast | Builder of Cool Projects
-
-📄 License
-This project is licensed under the MIT License - feel free to use and modify!
-
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
