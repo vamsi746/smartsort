@@ -96,14 +96,14 @@ Then open http://127.0.0.1:5000 in your browser.
 
 
 ```
-🎯 Use Cases
+🎯 Use Cases-
 🏭 Factories: Automated sorting of fresh vs rotten produce
 
 🛒 Supermarkets: Quality check at delivery docks
 
 🏠 Smart Homes: Alert users to use produce before it spoils
 
-🙌 Acknowledgements
+🙌 Acknowledgements-
 Kaggle Dataset – for the fruit and vegetable dataset
 
 TensorFlow – deep learning framework
