@@ -114,7 +114,7 @@ Flask – lightweight Python web framework
 
 # ✍️ Author
 ## 🔥 VAMSI(Lakshmi Narayana) 🔥
-## 🔗 GitHub: vamsi746
+## 🔗 GitHub: https://github.com/vamsi746
 ## 🔗 LinkedIn: www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6
 
 ## 📜 License
