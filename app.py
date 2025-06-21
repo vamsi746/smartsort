@@ -1,16 +1,31 @@
 from flask import Flask, render_template, request
 import os
+import requests
 from werkzeug.utils import secure_filename
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 
 app = Flask(__name__)
+
 # Ensure uploads folder exists
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-model = load_model("healthy_vs_rotten.h5")
+# ✅ Step: Download model if not present
+model_url = 'https://drive.google.com/uc?export=download&id=1-6P7R6fHLFA7N1qlx3xzmyyxFVd1fbch'
+model_path = 'healthy_vs_rotten.h5'
+
+if not os.path.exists(model_path):
+    print("📦 Downloading model...")
+    r = requests.get(model_url)
+    with open(model_path, 'wb') as f:
+        f.write(r.content)
+    print("✅ Model downloaded!")
+
+# ✅ Load model
+model = load_model(model_path)
+
 class_labels = [
     'Apple__Healthy', 'Apple__Rotten', 'Banana__Healthy', 'Banana__Rotten',
     'Bellpepper__Healthy', 'Bellpepper__Rotten', 'Carrot__Healthy', 'Carrot__Rotten',
@@ -21,10 +36,10 @@ class_labels = [
     'Strawberry__Healthy', 'Strawberry__Rotten', 'Tomato__Healthy', 'Tomato__Rotten'
 ]
 
-
 @app.route('/')
 def index():
     return render_template("index.html")
+
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'GET':
@@ -34,13 +49,12 @@ def predict():
         return "⚠️ No file part in the request"
 
     file = request.files['file']
-
     if file.filename == '':
         return "⚠️ No file selected"
 
     if file:
         filename = secure_filename(file.filename)
-        filepath = os.path.join('static/uploads', filename)
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
         file.save(filepath)
 
         # Load and preprocess image
@@ -56,14 +70,3 @@ def predict():
         return render_template("output.html", prediction=result, filename=filename)
 
     return "⚠️ Something went wrong"
-@app.route('/about')
-def about():
-    return render_template("about.html")
-@app.route('/contact')
-def contact():
-    return render_template("contact.html")
-
-
-# ✅ THIS STARTS THE FLASK SERVER
-if __name__ == '__main__':
-    app.run(debug=True)
