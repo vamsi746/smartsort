@@ -13,13 +13,20 @@
 ## 📸 Demo Visuals
 
 ### 🏠 Home Page  
-![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home.png.PNG)
+![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home1.JPG)
+![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home2.JPG)
 
 ### 🔍 Predict Page  
-![Predict](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/predict.png.PNG)
+![Predict](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/predict.JPG)
 
 ### 📈 Result Output  
-![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/result.png.PNG)
+![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/result.JPG)
+
+### About
+![About](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/about.JPG)
+
+### Contact
+![Contact](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/contact.JPG)
 
 
 ## 💡 Features
