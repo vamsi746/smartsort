@@ -1,35 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About | SmartSort</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Very important for mobile responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>About | SmartSort</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("{{ url_for('static', filename='img/bg-dark.jpg') }}") no-repeat center center/cover;
+      color: #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    nav .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a.active {
+      color: #4CAF50;
+    }
+
+    .about-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 60px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .about-card {
+      background: rgba(30, 30, 30, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 960px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-card h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+
+    .about-card p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      color: #e0e0e0;
+    }
+
+    .highlight {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #ffd700;
+    }
+
+    .tech-stack {
+      margin: 30px 0;
+    }
+
+    .tech-stack h2 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .badge {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border-radius: 12px;
+      padding: 6px 14px;
+      font-size: 0.9em;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.9);
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    footer strong {
+      color: #4CAF50;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">SMARTSORT</div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about" class="active">About</a></li>
-            <li><a href="/predict">Predict</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <div class="logo">SMARTSORT</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/predict">Predict</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section class="about-hero">
-        <div class="overlay"></div>
-        <div class="about-card">
-            <h1>About SmartSort</h1>
-            <p><strong>SmartSort</strong> is an AI-powered web application that helps identify the freshness of fruits and vegetables using deep learning and transfer learning (VGG16).</p>
-            <p>It assists farmers, vendors, and households in reducing food waste and improving quality control.</p>
-            <p>This project uses a custom-trained model to classify over <strong>28 fruit and vegetable classes</strong> as either fresh or rotten. Users simply upload an image, and SmartSort instantly analyzes and displays the prediction.</p>
-            <p>Whether you're working in agriculture, managing a supermarket, or just checking what’s in your fridge — SmartSort brings AI to your fingertips.</p>
-            <p class="highlight">💡 Built with ❤️ by <strong>VAMSI</strong></p>
+  <section class="about-section">
+    <div class="about-card">
+      <h1>About SmartSort</h1>
+      <p><strong>SmartSort</strong> is an AI-powered web application that classifies fruits and vegetables as <strong>fresh or rotten</strong> using deep learning and computer vision.</p>
+      <p>It is designed to help farmers, food vendors, supermarkets, and consumers quickly assess produce quality and minimize food waste.</p>
+      <p>With a user-friendly interface and instant image prediction, SmartSort brings the power of machine learning directly to your browser.</p>
+      
+      <div class="tech-stack">
+        <h2>🔧 Tech Stack</h2>
+        <div class="badges">
+          <div class="badge">Python</div>
+          <div class="badge">Flask</div>
+          <div class="badge">TensorFlow</div>
+          <div class="badge">VGG16</div>
+          <div class="badge">HTML</div>
+          <div class="badge">CSS</div>
+          <div class="badge">JavaScript</div>
+          <div class="badge">Jinja</div>
+          <div class="badge">Render</div>
+          <div class="badge">GitHub</div>
         </div>
-    </section>
+      </div>
 
-    <footer>
-        <p>✨ Built with ❤️ by <strong>VAMSI</strong> | © 2025 SmartSort</p>
-    </footer>
+      <p><strong>Key Features:</strong></p>
+      <ul style="text-align:left; max-width: 700px; margin: auto; line-height: 1.8;">
+        <li>🍎 Identifies 28 categories of fruits and vegetables</li>
+        <li>🧠 Uses VGG16 model with transfer learning</li>
+        <li>⚡ Fast predictions using trained deep learning model</li>
+        <li>📸 Upload image from phone or PC for instant results</li>
+        <li>🧪 Helpful in testing, sorting, and food logistics</li>
+        <li>📊 Supports quality control in retail and supply chain</li>
+      </ul>
+
+      <p class="highlight">💡 Crafted by <strong>Lakshmi Narayana</strong> and team with passion</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>✨ Built with ❤️ by <strong>SmartSort Crafted Brains</strong> | © 2025 SmartSort</p>
+  </footer>
 </body>
 </html>
