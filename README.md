@@ -20,7 +20,7 @@
 ![Predict](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/predict.JPG)
 
 ### 📈 Result Output  
-![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/result.JPG)
+![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/result1.JPG)
 
 ### About
 ![About](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/about.JPG)
