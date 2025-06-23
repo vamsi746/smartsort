@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import os
 from werkzeug.utils import secure_filename
 from tensorflow.keras.models import load_model
@@ -80,6 +80,9 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
+@app.route("/testbg")
+def test_bg():
+    return render_template("testbg.html")
 
 # ✅ THIS STARTS THE FLASK SERVER
 if __name__ == '__main__':
