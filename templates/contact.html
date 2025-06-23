@@ -1,48 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact | SmartSort</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Very important for mobile responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Our Team | SmartSort</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("{{ url_for('static', filename='img/teambg.jpg') }}") no-repeat center center/cover;
+      color: #f0f0f0;
+      position: relative;
+    }
+
+    /* Dim effect */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.55); /* dim intensity */
+      z-index: -1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    nav .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a.active {
+      color: #4CAF50;
+    }
+
+    .team-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .team-section h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(230deg, #242323, #000000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+      animation: slideIn 1.2s ease-out;
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateY(-30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 70px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .team-card {
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      font-weight: 500;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      position: relative;
+      backdrop-filter: blur(8px);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      overflow: hidden;
+    }
+
+    .team-card:hover {
+      transform: scale(1.02);
+    }
+
+    .team-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      z-index: 0;
+    }
+
+    .team-card > * {
+      position: relative;
+      z-index: 1;
+      color: #f0f0f0;
+    }
+
+    .team-card h2 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    .role {
+      color: #d0d0d0;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .team-card p {
+      font-size: 0.95em;
+      margin: 5px 0;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin: 15px 0;
+    }
+
+    .badge {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.75em;
+    }
+
+    .icons {
+      margin-top: 10px;
+    }
+
+    .icons img {
+      width: 26px;
+      margin: 0 6px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.2s;
+    }
+
+    .icons img:hover {
+      transform: scale(1.2);
+    }
+
+    .tag-lead {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #4CAF50;
+      color: #fff;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    .team-lead {
+      grid-column: 1 / -1;
+      background-image: url("{{ url_for('static', filename='img/teamlead.jpg') }}");
+      min-height: 380px;
+    }
+
+    .member-1 {
+      background-image: url("{{ url_for('static', filename='img/teammember1.jpg') }}");
+      aspect-ratio: 1 / 1;
+    }
+
+    .member-2 {
+      background-image: url("{{ url_for('static', filename='img/teammember2.jpg') }}");
+      aspect-ratio: 1 / 1;
+    }
+
+    .member-3 {
+      background-image: url("{{ url_for('static', filename='img/teammember3.jpg') }}");
+      aspect-ratio: 1 / 1;
+    }
+
+    @media (max-width: 768px) {
+      .team-section h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">SMARTSORT</div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/predict">Predict</a></li>
-            <li><a href="/contact" class="active">Contact</a></li>
-        </ul>
-    </nav>
 
-    <section class="contact-hero">
-        <div class="overlay"></div>
-        <div class="contact-container">
-            <h1>Contact Me</h1>
-            <p>Feel free to reach out or connect with me online:</p>
+  <nav>
+    <div class="logo">SMARTSORT</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/predict">Predict</a></li>
+      <li><a href="/contact" class="active">Contact</a></li>
+    </ul>
+  </nav>
 
-            <div class="contact-icons">
-                <a href="mailto:sangarajuvamsi6@example.com" target="_blank" class="contact-icon">
-                    <img src="{{ url_for('static', filename='img/email.png') }}" alt="Email">
-                    <span>Email</span>
-                </a>
+  <section class="team-section">
+    <h1 data-aos="fade-down">Meet the brains behind SmartSort</h1>
 
-                <a href="https://github.com/vamsi746" target="_blank" class="contact-icon">
-                    <img src="{{ url_for('static', filename='img/github.png') }}" alt="GitHub">
-                    <span>GitHub</span>
-                </a>
-
-                <a href="https://www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6" target="_blank" class="contact-icon">
-                    <img src="{{ url_for('static', filename='img/linkedin.png') }}" alt="LinkedIn">
-                    <span>LinkedIn</span>
-                </a>
-            </div>
+    <div class="team-grid">
+      <!-- Lead -->
+      <div class="team-card team-lead" data-aos="zoom-in">
+        <div class="tag-lead">Project Lead</div>
+        <h2>Lakshmi Narayana S</h2>
+        <p class="role">Project Lead</p>
+        <p>Age: 20 | Male</p>
+        <p>Architected SmartSort. Built backend APIs, trained ML models, integrated UI, and handled deployment.</p>
+        <div class="badges">
+          <div class="badge">Python</div>
+          <div class="badge">Flask</div>
+          <div class="badge">ML</div>
+          <div class="badge">UI/UX</div>
+          <div class="badge">Deployment</div>
+          <div class="badge">Leadership</div>
         </div>
-    </section>
+        <div class="icons">
+          <a href="mailto:sangarajuvamsi6@gmail.com"><img src="{{ url_for('static', filename='img/email.png') }}"></a>
+          <a href="https://github.com/vamsi746"><img src="{{ url_for('static', filename='img/github.png') }}"></a>
+          <a href="https://www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6"><img src="{{ url_for('static', filename='img/linkedin.png') }}"></a>
+        </div>
+      </div>
 
-    <footer>
-        <p>✨ Built with ❤️ by <strong>VAMSI</strong> | © 2025 SmartSort</p>
-    </footer>
+      <!-- Member 1 -->
+      <div class="team-card member-1" data-aos="fade-right">
+        <h2>Kushulatha K</h2>
+        <p class="role">Frontend Helper</p>
+        <p>Age: 20 | Female</p>
+        <p>Provided layout ideas and contributed to design improvements and prediction UI workflow and helped in frontend debugging</p>
+        <div class="badges">
+          <div class="badge">HTML</div>
+          <div class="badge">CSS</div>
+          <div class="badge">UI design</div>
+          <div class="badge">python</div>
+          <div class="badge">ML</div>
+        </div>
+        <div class="icons">
+          <a href="mailto:kushulatha.k@gmail.com"><img src="{{ url_for('static', filename='img/email.png') }}"></a>
+          <a href="https://github.com/Kushulatha-k"><img src="{{ url_for('static', filename='img/github.png') }}"></a>
+          <a href="https://www.linkedin.com/in/kushulatha-kunche-81a2b4315"><img src="{{ url_for('static', filename='img/linkedin.png') }}"></a>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="team-card member-2" data-aos="fade-up">
+        <h2>Devi Vara Prasad P</h2>
+        <p class="role">Data Assistant</p>
+        <p>Age: 20 | Male</p>
+        <p>Helped with early testing and validation of image sets. Assisted with manual label inspection.</p>
+        <div class="badges">
+          <div class="badge">UI</div>
+          <div class="badge">HTML</div>
+          <div class="badge">CSS</div>
+          <div class="badge">Testing</div>
+          <div class="badge">Review</div>
+        </div>
+        <div class="icons">
+          <a href="mailto:devi5110985@gmail.com"><img src="{{ url_for('static', filename='img/email.png') }}"></a>
+          <a href="https://github.com/devi5110985"><img src="{{ url_for('static', filename='img/github.png') }}"></a>
+          <a href="http://www.linkedin.com/in/devi-vara-prasad-893759342"><img src="{{ url_for('static', filename='img/linkedin.png') }}"></a>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="team-card member-3" data-aos="fade-left">
+        <h2>Heshwanth S</h2>
+        <p class="role">Data Support</p>
+        <p>Age: 20 | Male</p>
+        <p>Contributed to data collection and manual labeling. Participated in backend testing.</p>
+        <div class="badges">
+          <div class="badge">Data Collection</div>
+          <div class="badge">UI</div>
+          <div class="badge">Testing</div>
+          <div class="badge">Data Help</div>
+          <div class="badge">Predictions</div>
+        </div>
+        <div class="icons">
+          <a href="mailto:heshwanthhesh18@gmail.com"><img src="{{ url_for('static', filename='img/email.png') }}"></a>
+          <a href="https://GitHub.com/Heshwanth24"><img src="{{ url_for('static', filename='img/github.png') }}"></a>
+          <a href="http://www.linkedin.com/in/heshwanth-hesh-22a26b343"><img src="{{ url_for('static', filename='img/linkedin.png') }}"></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
 </body>
 </html>
