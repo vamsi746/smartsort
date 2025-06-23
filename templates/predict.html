@@ -1,12 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <title>Predict | SmartSort</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("{{ url_for('static', filename='img/bg-dark.jpg') }}") no-repeat center center/cover;
+      color: #f0f0f0;
+    }
+
+    .predict-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .predict-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+
+    .form-box {
+      position: relative;
+      z-index: 2;
+      background: rgba(20, 20, 20, 0.85);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .form-box h2 {
+      font-size: 2em;
+      color: #4CAF50;
+    }
+
+    .form-box p {
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .upload-icon {
+      background: #4CAF50;
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .upload-icon input {
+      display: none;
+    }
+
+    .cta-btn {
+      background: #2196F3;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .cta-btn:hover {
+      background: #0d8bf2;
+    }
+
+    footer {
+      text-align: center;
+      color: #ccc;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
+
   <nav>
     <div class="logo">SMARTSORT</div>
     <ul>
@@ -17,36 +101,33 @@
     </ul>
   </nav>
 
-  <section class="predict-hero">
-    <div class="form-box">
-      <h2><i class="fas fa-search"></i> Smart Prediction</h2>
-      <p>Select a fruit or vegetable image below:</p>
+  <section class="predict-section">
+    <div class="form-box" data-aos="zoom-in">
+      <h2>📷 Smart Prediction</h2>
+      <p>Select a fruit or vegetable image to predict its freshness:</p>
 
       <form action="/predict" method="post" enctype="multipart/form-data">
         <label class="upload-icon">
-          <i class="fas fa-upload"></i> Choose Image
+          Upload Image
           <input type="file" name="file" accept="image/*" required onchange="showFileName(this)">
         </label>
-
-        <p id="file-name" style="margin-top: 10px; color: #333;">No file selected</p>
-
-        <br />
-        <button type="submit" class="cta-btn">
-          <i class="fas fa-magic"></i> Predict Now
-        </button>
+        <p id="file-name">No file selected</p>
+        <button type="submit" class="cta-btn">🔍 Predict Now</button>
       </form>
     </div>
   </section>
 
   <footer>
-    <p>✨ Built with ❤️ by <strong>VAMSI</strong> | © 2025 SmartSort</p>
+    ✨ Built with ❤️ by <strong>SmartSort Crafted Brains</strong> | © 2025
   </footer>
 
   <script>
     function showFileName(input) {
       const fileName = input.files[0] ? input.files[0].name : 'No file selected';
-      document.getElementById('file-name').textContent = "📷 Image selected: " + fileName;
+      document.getElementById('file-name').textContent = "📎 Selected: " + fileName;
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
