@@ -120,7 +120,7 @@ VGG16 – pre-trained model for transfer learning
 Flask – lightweight Python web framework
 
 # ✍️ Author
-## 🔥 VAMSI(Lakshmi Narayana) 🔥
+## 🔥 VAMSI 🔥
 ## 🔗 GitHub: https://github.com/vamsi746
 ## 🔗 LinkedIn: www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6
 
