@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Result | SmartSort</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("{{ url_for('static', filename='img/bg-dark.jpg') }}") no-repeat center center/cover;
+      color: #fff;
+    }
+
+    .output-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .output-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+
+    .output-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(20, 20, 20, 0.55); /* More transparent */
+      backdrop-filter: blur(10px);        /* Smooth frosted glass effect */
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .output-card h2 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    .output-card img {
+      max-width: 80%;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 3px solid #fff;
+    }
+
+    .prediction-text {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+      color: #f0f0f0;
+    }
+
+    .cta-btn {
+      background: #2196F3;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cta-btn:hover {
+      background: #0d8bf2;
+    }
+
+    footer {
+      text-align: center;
+      color: #ccc;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">SMARTSORT</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/predict">Predict</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="output-section">
+    <div class="output-card" data-aos="fade-up">
+      <h2>✅ Prediction Result</h2>
+      <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+      <p class="prediction-text">{{ prediction }}</p>
+      <a href="/predict" class="cta-btn">🔁 Try Another</a>
+    </div>
+  </section>
+
+  <footer>
+    ✨ Built with ❤️ by <strong>SmartSort Crafted Brains</strong> | © 2025
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

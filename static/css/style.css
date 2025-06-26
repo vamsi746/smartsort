@@ -1,0 +1,665 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+nav {
+    background-color: #111;
+    color: #fff;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00ff88;
+    border-bottom: 2px solid #00ff88;
+}
+
+.hero {
+    background: url('../img/bg-dark.jpg') center center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-text h1 {
+    color: white;
+    font-size: 48px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-text p {
+    color: #ddd;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.hero {
+    position: relative;
+    background: url('../img/bg-dark.jpg') center center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* 🔹 Dark overlay to improve contrast */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* darkness level */
+    z-index: 1;
+}
+
+/* 🔹 Ensure text appears on top of overlay */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 20px;
+    color: #ddd;
+}
+
+
+.cta-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #00c26e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #00ff88;
+}
+
+footer {
+    background: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+.result-container {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.result-container img {
+    margin: 20px 0;
+    border: 3px solid #00c26e;
+    border-radius: 10px;
+}
+
+.prediction {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+.about-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    text-align: center;
+}
+
+.about-container h1 {
+    font-size: 32px;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.about-container .highlight {
+    font-size: 18px;
+    color: #00c26e;
+    margin-top: 30px;
+}
+.contact-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact-container h1 {
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.contact-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
+}
+
+.contact-icon span {
+    font-size: 16px;
+    color: #00c26e;
+}
+.predict-hero {
+    background: url('../img/bg-dark.jpg') center center/cover no-repeat;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.predict-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.form-box {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    max-width: 400px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.form-box h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #111;
+}
+
+.form-box p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.upload-icon {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #00c26e;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.upload-icon:hover {
+    background-color: #00ff88;
+}
+
+.upload-icon input[type="file"] {
+    display: none;
+}
+#file-name {
+    transition: 0.3s ease;
+}
+.output-container {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #f5f5f5, #e0ffe9);
+}
+
+.output-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 0.8s ease;
+}
+
+.output-card h2 {
+    margin-bottom: 15px;
+    font-size: 26px;
+    color: #00c26e;
+}
+
+.output-card img {
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.prediction-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease;
+}
+
+
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.output-hero {
+    background: url('../img/predict-bg.jpg') center center/cover no-repeat;
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.output-hero .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.output-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: fadeInUp 0.8s ease;
+    max-width: 400px;
+    width: 100%;
+    color: #fff;
+}
+.contact-hero {
+    background: url('../img/teambg.jpg') center center/cover no-repeat;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.contact-hero .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.contact-container {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-icon {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
+}
+
+.contact-icon img {
+    width: 60px;
+    height: 60px;
+    opacity: 0.7;
+    transition: 0.3s ease;
+    border-radius: 12px;
+}
+
+.contact-icon:hover img {
+    opacity: 1;
+}
+.about-hero {
+    background: url('../img/about-bg.jpg') center center/cover no-repeat;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.about-hero .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.about-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 800px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+.about-card h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+/* Team Lead Hover Animation */
+.team-lead:hover {
+  animation: pulse-glow 1s ease-in-out;
+  box-shadow: 0 0 25px #4CAF50;
+}
+
+/* Member Cards Hover Effect */
+.team-card.member-1:hover,
+.team-card.member-2:hover,
+.team-card.member-3:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Pulse Glow Keyframes */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0px #4CAF50;
+  }
+  50% {
+    box-shadow: 0 0 30px #4CAF50;
+  }
+  100% {
+    box-shadow: 0 0 0px #4CAF50;
+  }
+}
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  color: #fff;
+  background: url("../img/bg-dark.jpg") no-repeat center center/cover;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(10,10,10,0.9);
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .logo {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #00ff88;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00ff88;
+}
+
+.hero {
+  text-align: center;
+  padding: 150px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.cta-btn {
+  padding: 12px 30px;
+  background-color: #00ff88;
+  border: none;
+  border-radius: 30px;
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #00ffaa;
+  transform: scale(1.05);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+}
+
+.feature-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 260px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background-color: rgba(0,255,136,0.07);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: rgba(0,0,0,0.7);
+  font-size: 0.95em;
+}
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .sections, .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card, .team-card {
+    width: 90%;
+  }
+
+  .hero-banner {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .cta-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .team-section h2 {
+    font-size: 1.5rem;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+html {
+  scroll-padding-top: 60px;
+}
+
+
+

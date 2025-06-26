@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: smartsort-backend
+    env: docker
+    region: oregon
+    plan: free
