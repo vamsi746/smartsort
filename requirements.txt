@@ -6,8 +6,5 @@ scikit-learn
 seaborn
 pillow
 gunicorn
-<<<<<<< HEAD:requirements.txt
 requests
-=======
 opencv-python-headless
->>>>>>> 6d5f9fc0 (Pushed local Smart Sorting contents into Executable files folder):Executable files/requirements.txt
