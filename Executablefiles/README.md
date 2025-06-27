@@ -108,9 +108,9 @@ Then open http://127.0.0.1:5000 in your browser.
 | Name             | Role               | GitHub Profile                          |
 |------------------|--------------------|------------------------------------------|
 | Lakshmi Nrayana   | Full Stack & ML Dev | [@vamsi746](https://github.com/vamsi746) |
-| Kushulatha      | UI/UX Designer     | [@Kushulatha-k](https://github.com/Kushulatha-k)                              |
-| Devi Vara Prasad       | Dev   | [@devi5110985](https://github.com/devi5110985)                              |
-| Heshwanth   | Dev | [@Heshwanth24](https://github.com/Heshwanth24)                              |
+| Kushulatha      | UI/UX Designer     | [@Kushulatha-k](https://github.com/Kushulatha-k) |
+| Devi Vara Prasad       | Dev   | [@devi5110985](https://github.com/devi5110985) |
+| Heshwanth   | Dev | [@Heshwanth24](https://github.com/Heshwanth24) |
 
 🎯 Use Cases-
 🏭 Factories: Automated sorting of fresh vs rotten produce
