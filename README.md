@@ -48,3 +48,35 @@
 - **Deployment:** Render (Backend), GitHub Hosting  
 
 ---
+## 🗂️ Project Structure
+```
+smart-sorting/
+│
+├── app.py # Flask backend
+├── healthy_vs_rotten.h5 # Trained model
+├── requirements.txt
+│
+├── templates/ # HTML files
+│ ├── index.html
+│ ├── about.html
+│ ├── contact.html
+│ ├── predict.html
+│ └── output.html
+│
+├── static/
+│ ├── css/
+│ │ └── style.css
+│ └── img/
+│ ├── banner.jpg
+│ ├── email.png
+│ ├── github.png
+│ └── linkedin.png
+│
+└── screenshots/
+├── home.png
+├── predict.png
+└── contact.png
+
+
+```
+
