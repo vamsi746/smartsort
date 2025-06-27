@@ -119,7 +119,7 @@ Then open http://127.0.0.1:5000 in your browser.
 | Devi Vara Prasad       | Dev   | [@devi5110985](https://github.com/devi5110985) |
 | Heshwanth   | Dev | [@Heshwanth24](https://github.com/Heshwanth24) |
 
-🎯 Use Cases-
+## 🎯 Use Cases-
 🏭 Factories: Automated sorting of fresh vs rotten produce
 
 🛒 Supermarkets: Quality check at delivery docks
@@ -136,7 +136,7 @@ VGG16 – pre-trained model for transfer learning
 Flask – lightweight Python web framework
 
 # ✍️ Author
-## 🔥 Lakshmi Narayana🔥
+## 🧑🏻‍💻 Lakshmi Narayana
 ## 🔗 GitHub: https://github.com/vamsi746
 ## 🔗 LinkedIn: www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6
 
