@@ -101,5 +101,38 @@ Then open http://127.0.0.1:5000 in your browser.
 
 
 ```
+## 👥 Team Members
+
+| Name             | Role               | GitHub Profile                          |
+|------------------|--------------------|------------------------------------------|
+| Lakshmi Nrayana   | Full Stack & ML Dev | [@vamsi746](https://github.com/vamsi746) |
+| Kushulatha      | UI/UX Designer     | [@Kushulatha-k](https://github.com/Kushulatha-k) |
+| Devi Vara Prasad       | Dev   | [@devi5110985](https://github.com/devi5110985) |
+| Heshwanth   | Dev | [@Heshwanth24](https://github.com/Heshwanth24) |
+
+🎯 Use Cases-
+🏭 Factories: Automated sorting of fresh vs rotten produce
+
+🛒 Supermarkets: Quality check at delivery docks
+
+🏠 Smart Homes: Alert users to use produce before it spoils
+
+🙌 Acknowledgements-
+Kaggle Dataset – for the fruit and vegetable dataset
+
+TensorFlow – deep learning framework
+
+VGG16 – pre-trained model for transfer learning
+
+Flask – lightweight Python web framework
+
+# ✍️ Author
+## 🔥 Lakshmi Narayana🔥
+## 🔗 GitHub: https://github.com/vamsi746
+## 🔗 LinkedIn: www.linkedin.com/in/lakshmi-narayana-sangaraju-a814472b6
+
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
 
 
