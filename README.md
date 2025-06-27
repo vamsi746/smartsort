@@ -7,6 +7,7 @@
 ## 🚀 Live Demo
 
 🔗 **[SmartSort Live App](https://smartsort-backend.onrender.com)**
+click the link and wait a minute to load the application and refresh 
 
 ---
 
