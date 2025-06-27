@@ -79,4 +79,27 @@ smart-sorting/
 
 
 ```
+## 📦 How to Run Locally
+```
+# Clone the repository
+git clone https://github.com/vamsi746/smartsort.git
+cd smartsort
+
+# Optional: create virtual environment
+python -m venv venv
+venv\Scripts\activate     # For Windows
+# source venv/bin/activate  # For macOS/Linux
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the Flask application
+python app.py
+
+
+Then open http://127.0.0.1:5000 in your browser.
+
+
+```
+
 
