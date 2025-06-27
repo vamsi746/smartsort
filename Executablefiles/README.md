@@ -13,20 +13,20 @@
 ## 📸 Demo Visuals
 
 ### 🏠 Home Page  
-![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home1.JPG)
-![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/home2.JPG)
+![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/Executablefiles/static/img/home1.JPG)
+![Home](https://raw.githubusercontent.com/vamsi746/smartsort/main/Executablefiles/static/img/home2.JPG)
 
 ### 🔍 Predict Page  
-![Predict](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/predict.JPG)
+![Predict](https://raw.githubusercontent.com/vamsi746/smartsort/main/Executablefiles/static/img/predict.JPG)
 
 ### 📈 Result Output  
-![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/result1.JPG)
+![Result](https://raw.githubusercontent.com/vamsi746/smartsort/main/Executablefiles/static/img/result1.JPG)
 
 ### About
-![About](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/about.JPG)
+![About](https://raw.githubusercontent.com/vamsi746/smartsort/main/Executablefiles/static/img/about.JPG)
 
 ### Contact
-![Contact](https://raw.githubusercontent.com/vamsi746/smartsort/main/static/img/contact.JPG)
+![Contact](https://raw.githubusercontent.com/vamsi746/smartsort/main/Executablefiles/static/img/contact.JPG)
 
 
 ## 💡 Features
@@ -103,6 +103,15 @@ Then open http://127.0.0.1:5000 in your browser.
 
 
 ```
+## 👥 Team Members
+
+| Name             | Role               | GitHub Profile                          |
+|------------------|--------------------|------------------------------------------|
+| Lakshmi Nrayana   | Full Stack & ML Dev | [@vamsi746](https://github.com/vamsi746) |
+| Kushulatha      | UI/UX Designer     | [@Kushulatha-k](https://github.com/Kushulatha-k)                              |
+| Devi Vara Prasad       | Dev   | [@devi5110985](https://github.com/devi5110985)                              |
+| Heshwanth   | Dev | [@Heshwanth24](https://github.com/Heshwanth24)                              |
+
 🎯 Use Cases-
 🏭 Factories: Automated sorting of fresh vs rotten produce
 
