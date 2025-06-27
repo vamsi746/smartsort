@@ -4,23 +4,21 @@ from werkzeug.utils import secure_filename
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
-import requests
+import gdown
 
 app = Flask(__name__)
 
-# Ensure uploads folder exists
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# 🔽 Google Drive model download setup
+# 🔽 Google Drive model download setup (direct download using gdown)
 MODEL_PATH = "healthy_vs_rotten.h5"
-MODEL_URL = "https://drive.google.com/uc?export=download&id=1-6P7R6fHLFA7N1qlx3xzmyyxFVd1fbch"
+GDRIVE_ID = "1-6P7R6fHLFA7N1qlx3xzmyyxFVd1fbch"
+MODEL_URL = f"https://drive.google.com/uc?id={GDRIVE_ID}"
 
 if not os.path.exists(MODEL_PATH):
     print("📥 Downloading model from Google Drive...")
-    response = requests.get(MODEL_URL)
-    with open(MODEL_PATH, "wb") as f:
-        f.write(response.content)
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
     print("✅ Model downloaded successfully.")
 
 # 🔁 Load model
@@ -80,6 +78,7 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
+
 @app.route("/testbg")
 def test_bg():
     return render_template("testbg.html")
