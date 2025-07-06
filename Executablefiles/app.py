@@ -4,18 +4,27 @@ from werkzeug.utils import secure_filename
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
+import gdown
 
 app = Flask(__name__)
 
-# Where uploaded images are stored
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Load your pre-trained model (ensure this file exists in your repo!)
+# 🔽 Google Drive model download setup (direct download using gdown)
 MODEL_PATH = "healthy_vs_rotten.h5"
+GDRIVE_ID = "1-6P7R6fHLFA7N1qlx3xzmyyxFVd1fbch"
+MODEL_URL = f"https://drive.google.com/uc?id={GDRIVE_ID}"
+
+if not os.path.exists(MODEL_PATH):
+    print("📥 Downloading model from Google Drive...")
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+    print("✅ Model downloaded successfully.")
+
+# 🔁 Load model
 model = load_model(MODEL_PATH)
 
-# Label classes
+# 🍎 Class labels
 class_labels = [
     'Apple__Healthy', 'Apple__Rotten', 'Banana__Healthy', 'Banana__Rotten',
     'Bellpepper__Healthy', 'Bellpepper__Rotten', 'Carrot__Healthy', 'Carrot__Rotten',
@@ -36,24 +45,23 @@ def predict():
         return render_template("predict.html")
 
     if 'file' not in request.files:
-        return "⚠️ No file part in the request."
+        return "⚠️ No file part in the request"
 
     file = request.files['file']
 
     if file.filename == '':
-        return "⚠️ No file selected."
+        return "⚠️ No file selected"
 
     if file:
         filename = secure_filename(file.filename)
         filepath = os.path.join(UPLOAD_FOLDER, filename)
         file.save(filepath)
 
-        # Preprocess the image
+        # Load and preprocess image
         img = image.load_img(filepath, target_size=(224, 224))
         img_array = image.img_to_array(img) / 255.0
         img_array = np.expand_dims(img_array, axis=0)
 
-        # Predict
         prediction = model.predict(img_array)[0]
         predicted_class = class_labels[np.argmax(prediction)]
         confidence = prediction[np.argmax(prediction)] * 100
@@ -61,7 +69,7 @@ def predict():
 
         return render_template("output.html", prediction=result, filename=filename)
 
-    return "⚠️ Something went wrong."
+    return "⚠️ Something went wrong"
 
 @app.route('/about')
 def about():
@@ -71,10 +79,10 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@app.route('/testbg')
+@app.route("/testbg")
 def test_bg():
     return render_template("testbg.html")
 
-# Start the server
+# ✅ THIS STARTS THE FLASK SERVER
 if __name__ == '__main__':
     app.run(debug=True)
