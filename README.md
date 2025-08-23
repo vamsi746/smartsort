@@ -117,7 +117,7 @@ Then open http://127.0.0.1:5000 in your browser.
 | Lakshmi Narayana   | Project Lead | [@vamsi746](https://github.com/vamsi746) |
 | Kushulatha      | Developer     | [@Kushulatha-k](https://github.com/Kushulatha-k) |
 | Devi Vara Prasad       | Developer   | [@devi5110985](https://github.com/devi5110985) |
-| Heshwanth   | Developer | [@Heshwanth24](https://github.com/Heshwanth24) |
+| Heshwanth   | Assistant | [@Heshwanth24](https://github.com/Heshwanth24) |
 
 ## 🎯 Use Cases-
 🏭 Factories: Automated sorting of fresh vs rotten produce
