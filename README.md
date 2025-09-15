@@ -51,7 +51,7 @@ https://drive.google.com/drive/folders/1qFkje3qVwev1YwJdh9Jbb_gxJ2Suvy4A?usp=sha
 
 ## ⚙️ Technologies Used
 
-- **Frontend:** HTML, CSS, JavaScript  
+- **Frontend:** HTML, CSS  
 - **Backend:** Python Flask  
 - **Deep Learning:** TensorFlow, Keras, VGG16  
 - **Deployment:** Render (Backend), GitHub Hosting  
