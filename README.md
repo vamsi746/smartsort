@@ -133,7 +133,7 @@ TensorFlow – deep learning framework
 
 VGG16 – pre-trained model for transfer learning
 
-Flask – lightweight Python web framework
+Flask – lightweight Python web framework.
 
 # ✍️ Author
 ## 🧑🏻‍💻 Lakshmi Narayana
