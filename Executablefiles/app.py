@@ -3,6 +3,7 @@ import os
 from werkzeug.utils import secure_filename
 import numpy as np
 import requests
+import gdown  # type: ignore
 from model_utils import load_model_safe
 # Import for image preprocessing - ignored for static analysis
 from tensorflow.keras.preprocessing import image  # type: ignore
@@ -17,12 +18,67 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 MODEL_PATH = "healthy_vs_rotten.h5"
 MODEL_URL = "https://drive.google.com/uc?export=download&id=1-6P7R6fHLFA7N1qlx3xzmyyxFVd1fbch"
 
+def download_model_from_gdrive(url, destination):
+    """Download model file from Google Drive with proper handling"""
+    print("📥 Downloading model from Google Drive using gdown...")
+    try:
+        # Use gdown for more reliable Google Drive downloads
+        gdown.download(url, destination, quiet=False)
+        print("✅ Model downloaded successfully with gdown.")
+        return True
+    except Exception as e:
+        print(f"⚠️  gdown failed: {e}")
+        print("🔄 Falling back to requests method...")
+        
+        # Fallback to requests method
+        session = requests.Session()
+        response = session.get(url, stream=True)
+        
+        # Check if we got a confirmation page instead of the file
+        if b'confirm' in response.content:
+            print("⚠️  Download requires confirmation, trying alternative method...")
+            # Extract confirmation code and retry
+            for key, value in response.cookies.items():
+                if key.startswith('download_warning'):
+                    confirm_token = value
+                    break
+            else:
+                confirm_token = None
+            
+            # Reconstruct URL with confirmation token
+            if confirm_token:
+                url = url + "&confirm=" + confirm_token
+                response = session.get(url, stream=True)
+        
+        # Save the file
+        with open(destination, "wb") as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+        
+        print("✅ Model downloaded successfully with fallback method.")
+        return True
+
 if not os.path.exists(MODEL_PATH):
-    print("📥 Downloading model from Google Drive...")
-    response = requests.get(MODEL_URL)
-    with open(MODEL_PATH, "wb") as f:
-        f.write(response.content)
-    print("✅ Model downloaded successfully.")
+    try:
+        download_model_from_gdrive(MODEL_URL, MODEL_PATH)
+    except Exception as e:
+        print(f"❌ Failed to download model: {e}")
+        raise
+
+# Check if downloaded file is valid
+if os.path.exists(MODEL_PATH):
+    file_size = os.path.getsize(MODEL_PATH)
+    print(f"📁 Model file size: {file_size} bytes")
+    if file_size < 1000000:  # Less than 1MB, likely an error page
+        print("⚠️  Model file seems too small, might be an error page")
+        # Try to read first few bytes to check
+        with open(MODEL_PATH, 'rb') as f:
+            header = f.read(100)
+            if b'html' in header.lower() or b'<html' in header.lower():
+                print("❌ Downloaded file is an HTML page, not the model")
+                os.remove(MODEL_PATH)  # Remove invalid file
+                raise Exception("Model download failed - received HTML instead of file")
 
 # 🔁 Load model with our safe loading utility
 try:
