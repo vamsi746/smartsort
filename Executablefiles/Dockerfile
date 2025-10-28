@@ -1,30 +1,28 @@
-# Use Python 3.10 base image
+# Use a stable base image (TensorFlow compatible)
 FROM python:3.10-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy all project files
+# Copy all files
 COPY . /app
 
-# Install required system dependencies
+# Install system dependencies safely
 RUN apt-get update --fix-missing && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    build-essential \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
-    libxrender-dev \
- && apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        libgl1 \
+        libglib2.0-0 \
+        libsm6 \
+        libxext6 \
+        libxrender1 \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install Python packages
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 8000
-EXPOSE 8000
+# Expose Flask default port
+EXPOSE 5000
 
-# Run Flask app using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
+# Run Flask app
+CMD ["python", "app.py"]
