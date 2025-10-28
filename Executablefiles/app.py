@@ -1,28 +1,36 @@
 from flask import Flask, render_template, request, url_for
 import os
 from werkzeug.utils import secure_filename
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
 import numpy as np
-import gdown
+import requests
+from model_utils import load_model_safe
+# Import for image preprocessing - ignored for static analysis
+from tensorflow.keras.preprocessing import image  # type: ignore
 
 app = Flask(__name__)
 
+# Ensure uploads folder exists
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# 🔽 Google Drive model download setup (direct download using gdown)
+# 🔽 Google Drive model download setup
 MODEL_PATH = "healthy_vs_rotten.h5"
-GDRIVE_ID = "1-6P7R6fHLFA7N1qlx3xzmyyxFVd1fbch"
-MODEL_URL = f"https://drive.google.com/uc?id={GDRIVE_ID}"
+MODEL_URL = "https://drive.google.com/uc?export=download&id=1-6P7R6fHLFA7N1qlx3xzmyyxFVd1fbch"
 
 if not os.path.exists(MODEL_PATH):
     print("📥 Downloading model from Google Drive...")
-    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+    response = requests.get(MODEL_URL)
+    with open(MODEL_PATH, "wb") as f:
+        f.write(response.content)
     print("✅ Model downloaded successfully.")
 
-# 🔁 Load model
-model = load_model(MODEL_PATH)
+# 🔁 Load model with our safe loading utility
+try:
+    model = load_model_safe(MODEL_PATH)
+    print("✅ Model loaded and compiled successfully.")
+except Exception as e:
+    print(f"❌ Error loading model: {e}")
+    raise
 
 # 🍎 Class labels
 class_labels = [
@@ -34,10 +42,6 @@ class_labels = [
     'Pomegranate__Healthy', 'Pomegranate__Rotten', 'Potato__Healthy', 'Potato__Rotten',
     'Strawberry__Healthy', 'Strawberry__Rotten', 'Tomato__Healthy', 'Tomato__Rotten'
 ]
-
-@app.route('/')
-def index():
-    return render_template("index.html")
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
@@ -52,24 +56,33 @@ def predict():
     if file.filename == '':
         return "⚠️ No file selected"
 
-    if file:
+    if file and file.filename:
         filename = secure_filename(file.filename)
         filepath = os.path.join(UPLOAD_FOLDER, filename)
         file.save(filepath)
 
         # Load and preprocess image
-        img = image.load_img(filepath, target_size=(224, 224))
-        img_array = image.img_to_array(img) / 255.0
-        img_array = np.expand_dims(img_array, axis=0)
+        try:
+            # Use the directly imported image module
+            img = image.load_img(filepath, target_size=(224, 224))
+            img_array = image.img_to_array(img) / 255.0
+            img_array = np.expand_dims(img_array, axis=0)
 
-        prediction = model.predict(img_array)[0]
-        predicted_class = class_labels[np.argmax(prediction)]
-        confidence = prediction[np.argmax(prediction)] * 100
-        result = f"{predicted_class} ({confidence:.2f}%)"
+            # Make prediction
+            prediction = model.predict(img_array)[0]
+            predicted_class = class_labels[np.argmax(prediction)]
+            confidence = prediction[np.argmax(prediction)] * 100
+            result = f"{predicted_class} ({confidence:.2f}%)"
+        except Exception as e:
+            return f"❌ Error during prediction: {str(e)}"
 
         return render_template("output.html", prediction=result, filename=filename)
 
     return "⚠️ Something went wrong"
+
+@app.route('/')
+def index():
+    return render_template("index.html")
 
 @app.route('/about')
 def about():
