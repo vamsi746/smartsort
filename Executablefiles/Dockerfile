@@ -8,14 +8,16 @@ WORKDIR /app
 COPY . /app
 
 # Install required system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update --fix-missing && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
     build-essential \
     libgl1-mesa-glx \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
+    libxrender1 \
     libxrender-dev \
-    && rm -rf /var/lib/apt/lists/*
+ && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Python packages
 RUN pip install --upgrade pip
